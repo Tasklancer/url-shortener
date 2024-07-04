@@ -27,12 +27,12 @@ jobs:
       - name: Install Dependencies
         run: |
           node --version
-          npm i --force
+          npm i
 
-      - name: Build Static Website
-        run: npm run build
-        env:
-          CI: false
+      # - name: Build Static Website
+      #   run: npm run build
+      #   env:
+      #     CI: false
 
       - name: Copy files to the production website with the AWS CLI
         run: |
