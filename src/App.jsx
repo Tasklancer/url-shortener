@@ -1,5 +1,5 @@
 import "./App.css";
-import {RouterProvider, createBrowserRouter} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import UrlProvider from "./context";
 
 import AppLayout from "./layouts/app-layout";
@@ -12,47 +12,47 @@ import LinkPage from "./pages/link";
 import Auth from "./pages/auth";
 
 const router = createBrowserRouter([
-  {
-    element: <AppLayout />,
-    children: [
-      {
-        path: "/",
-        element: <LandingPage />,
-      },
-      {
-        path: "/auth",
-        element: <Auth />,
-      },
-      {
-        path: "/dashboard",
-        element: (
-          <RequireAuth>
-            <Dashboard />
-          </RequireAuth>
-        ),
-      },
-      {
-        path: "/link/:id",
-        element: (
-          <RequireAuth>
-            <LinkPage />
-          </RequireAuth>
-        ),
-      },
-      {
-        path: "/:id",
-        element: <RedirectLink />,
-      },
-    ],
-  },
+	{
+		element: <AppLayout />,
+		children: [
+			{
+				path: "/",
+				element: <LandingPage />,
+			},
+			{
+				path: "/auth",
+				element: <Auth />,
+			},
+			{
+				path: "/dashboard",
+				element: (
+					<RequireAuth>
+						<Dashboard />
+					</RequireAuth>
+				),
+			},
+			{
+				path: "/link/:id",
+				element: (
+					<RequireAuth>
+						<LinkPage />
+					</RequireAuth>
+				),
+			},
+			{
+				path: "/:id",
+				element: <RedirectLink />,
+			},
+		],
+	},
 ]);
 
 function App() {
-  return (
-    <UrlProvider>
-      <RouterProvider router={router} />
-    </UrlProvider>
-  );
+	return (
+		<UrlProvider>
+			<RouterProvider router={router} />
+		</UrlProvider>
+	);
 }
 
 export default App;
